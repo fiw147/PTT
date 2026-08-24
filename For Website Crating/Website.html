@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>เว็บไซค์บ้านภูเก็ต</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header */
+header {
+  padding: 60px;
+  text-align: center;
+  background: lab(77.48% -26.33 -34.88);
+  color: white;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Top navigation bar */
+.navbar {
+  display: flex;
+  background: linear-gradient(135deg, #1a5f99 0%, #2a7fbb 50%, #1a5f99 100%);
+  box-shadow: inset 0 1px 3px rgba(100,180,255,0.3), 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Navigation bar links */
+.navbar a {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Animated circular shimmer behind links */
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(100,180,255,0.5) 0%, rgba(50,150,255,0.4) 40%, rgba(30,120,220,0.35) 70%, rgba(20,100,200,0.3) 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hover effect */
+.navbar a:hover {
+  color: black;
+}
+
+.navbar a:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Column container */
+.container {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .container, .navbar {   
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- Header -->
+<header>
+
+  <img src="Gemini_Generated_Image_vqhpadvqhpadvqhp.png" width="1800" height="850">
+</header>
+
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Marquee Loop with Delay</title>
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            /* ใช้เวลาลูปทั้งหมด 10 วินาที */
+            animation: marqueeWithDelay 20s linear infinite; 
+        }
+
+        @keyframes marqueeWithDelay {
+            /* 0% ถึง 70% (ใช้เวลา 7 วินาที): ข้อความวิ่งจากขวาทะลุหายไปทางซ้าย */
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            70% {
+                transform: translate3d(-100%, 0, 0);
+            }
+            /* 70% ถึง 100% (ใช้เวลา 3 วินาที): ข้อความจะหยุดรออยู่ข้างนอกเงียบ ๆ ก่อนเริ่มลูปใหม่ */
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <span class="marquee-text">ยินดีต้อนรับสู่เว็บไซต์ของเรา พร้อมสำหรับการท่องเที่ยวและหาข้อมูลแล้วหรือยัง!</span>
+    </div>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="Website.html">หน้าแรก</a>
+  <a href="teepak.html">แนะนำที่พัก</a>
+  <a href="food.html">อาหาร(ร้านอาหาร)</a>
+  <a href="Places.html">สถานที่ท่องเที่ยว</a>
+  <a href="Contact.html">ติดต่อเรา</a>
+</div>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 15px;
+}
+
+.gallery-item {
+  position: relative;
+  width: calc(25% - 20px);
+  height: auto;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.1);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+/* Modal content (image) */
+.modal-content {
+  position: relative;
+  width: 90%;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 5px;
+  overflow: hidden;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.6);}
+  to {transform: scale(1);}
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #ffffff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Caption of modal image */
+.caption {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 740px) {
+  .gallery-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .gallery-item {
+    width: calc(100% - 20px);
+  }
+}
+</style>
+</head>
+<body>
+
+
+<!-- Content Container -->
+<div class="container">
+  <!-- ฝั่งซ้าย (Sidebar) -->
+  <div class="side">
+    <h2>พื้นที่ท้องเที่ยวของ ภูเก็ต</h2>
+    <h5>นี้เป็นหนึ่งในสถานที่ท่องเที่ยว</h5>
+    <div style="margin-bottom: 15px;">
+      <img src="images.jpg" style="width: 100%; height: auto; display: block;">
+    </div>
+
+
+    <h3>ในอควาเรีย ที่มีสัตว์น้ำหลากหลายชนิด</h3>
+   <h4> <p>นั้นยังมีโซนสัมผัสสัตว์น้ำที่ให้ผู้เข้าชมได้สัมผัสและเรียนรู้เกี่ยวกับชีวิตใต้ทะเลอย่างใกล้ชิด</p></h4>
+    <div class="image-group" style="display: flex; flex-direction: column; gap: 10px;">
+      <img src="hotel5.jpg" width="180" height="120" style="display: block;"> 
+      <img src="Aqua2.jpg" width="180" height="120" style="display: block;"> 
+      <img src="Aqua3.jpg" width="180" height="120" style="display: block;">
+    </div>
+  </div>
+  
+  <!-- ฝั่งขวา (Main Content) -->
+  <div class="main">
+    <h2>อาควาเรียที่ภูเก็ต</h2>
+    <h5>ภูเก็ต อควาเรีย, พฤษภาคม 2025</h5>
+    <div style="margin-top: 15px; margin-bottom: 30px; display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+      <img src="hotel3.jpg" style="width: calc(50% - 10px); height: 240px; object-fit: cover; display: block; background-color: #1d1b1b; border: 3px solid #ccc; padding: 5px; box-sizing: border-box;">
+      <img src="hotel4.jpg" style="width: calc(50% - 10px); height: 240px; object-fit: cover; display: block; background-color: #1f1c1c; border: 3px solid #ccc; padding: 5px; box-sizing: border-box;">
+      <h3>รายละเอียดเพิ่มเติม</h3>
+      <p>ในอาควาเรียที่ภูเก็ตมีการจัดแสดงสัตว์น้ำหลากหลายชนิด รวมถึงปลาที่มีสีสันสวยงามและสัตว์น้ำหายาก นอกจากนี้ยังมีโซนสัมผัสสัตว์น้ำที่ให้ผู้เข้าชมได้สัมผัสและเรียนรู้เกี่ยวกับชีวิตใต้ทะเลอย่างใกล้ชิด</p>
+    </div>    
+    
+    <p></p>
+    <p>.</p>
+    <br>
+
+    <!-- Responsive Modal Images -->
+    <h2 style="margin-top: 20px; margin-bottom: 15px;">สถานที่ท่องเที่ยวและที่พักแนะนำ</h2>
+    <div class="gallery" style="padding: 0;">
+      <img src="Pukhet.jpg" alt="Pukhet" class="gallery-item" onclick="openModal('modal1', 'ชายหาดภูเก็ต')">
+      <img src="places in phuket.jpg" alt="places in phuket" class="gallery-item" onclick="openModal('modal2', 'สถานที่ท่องเที่ยว')">
+      <img src="hotel.jpg" alt="hotel" class="gallery-item" onclick="openModal('modal3', 'โรงแรมที่พัก')">
+      <img src="mountain.jpg" alt="Mountains" class="gallery-item" onclick="openModal('modal4', 'วิวภูเขา')">
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <h5>นายเปี่ยมเกตุนนท์ อบมาพันธ์ <br> นักศึกษาสาขาวิชาเทคโนโลยีสารสนเทศ <br> ทำหน้าเว็บเกียวกับภูเก็ต</h5>
+</footer>
+
+</body>
+</html>
+

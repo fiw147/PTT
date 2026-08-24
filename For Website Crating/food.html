@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional Food – Phuket Traveler</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 40%, #e0f7fa 100%);
+      color: #01579b;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #0277bd;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    nav a:hover {
+      background: #00bcd4;
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      background: #00acc1;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      background: #0288d1;
+    }
+
+    .header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .sliding-text {
+      position: absolute;
+      bottom: 25px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(1, 87, 155, 0.75);
+      padding: 12px 0;
+    }
+
+    .sliding-text span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide 22s linear infinite;
+      color: #e0f7fa;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* TITLE */
+    .page-title {
+      text-align: center;
+      padding: 40px 20px 30px;
+    }
+
+    .page-title h1 {
+      font-size: 2.5rem;
+      color: #01579b;
+      margin-bottom: 8px;
+    }
+
+    .page-title p {
+      color: #0277bd;
+      font-size: 1.15rem;
+    }
+
+    /* 2 COLUMN GRID */
+    .food-container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 20px 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+    }
+
+    /* FOOD CARD */
+    .food-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(2, 119, 189, 0.15);
+      border: 3px solid #4dd0e1;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .food-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(2, 119, 189, 0.25);
+    }
+
+    /* IMAGE + SLIDING INFO */
+    .food-img {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .food-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .food-card:hover .food-img img {
+      transform: scale(1.1);
+    }
+
+    /* THIS IS THE SLIDING INFO FROM THE PICTURE */
+    .slide-info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(1, 87, 155, 0.92);
+      color: white;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translateY(100%);          /* hidden under the picture */
+      transition: transform 0.45s ease;
+    }
+
+    .food-card:hover .slide-info {
+      transform: translateY(0);             /* slides up from the picture */
+    }
+
+    .slide-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #80deea;
+    }
+
+    .slide-info p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Food name under the card */
+    .food-name {
+      text-align: center;
+      padding: 14px;
+      background: #0277bd;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* SPECIAL CARD (Tom Yum) */
+    .special {
+      border-color: #00e5ff;
+      box-shadow: 0 0 0 2px #00bcd4;
+    }
+
+    .special .slide-info {
+      background: rgba(0, 96, 100, 0.95);
+    }
+
+    .special .food-name {
+      background: #00838f;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #01579b;
+      color: #b2ebf2;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    footer a {
+      color: #80deea;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .food-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title h1 {
+        font-size: 2rem;
+      }
+      .food-img {
+        height: 240px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="Website.html">Home</a></li>
+      <li><a href="food.html" class="active">Traditional Food</a></li>
+      <li><a href="teepak.html">Hotels / Motel</a></li>
+      <li><a href="Places.html">Places</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=1400&q=80" alt="Thai food" class="header-img">
+    <div class="sliding-text">
+      <span>Taste the real flavors of Phuket • Pad Thai • Tom Yum • Mango Sticky Rice • Massaman • Som Tum • Local seafood •</span>
+    </div>
+  </header>
+
+  <!-- TITLE -->
+  <div class="page-title">
+    <h1>Traditional Food in Phuket</h1>
+    <p>Hover on any picture to see the information slide out</p>
+  </div>
+
+  <!-- FOOD GRID -->
+  <div class="food-container">
+
+    <!-- 1. Pad Thai -->
+    <div class="food-card">
+      <div class="food-img">
+        <img src="pad thai.jpg" alt="Pad Thai">
+        <div class="slide-info">
+          <h3>Pad Thai</h3>
+          <p>Stir-fried rice noodles with egg, tofu, bean sprouts, and crushed peanuts. The most famous Thai noodle dish in the world.</p>
+        </div>
+      </div>
+      <div class="food-name">Pad Thai</div>
+    </div>
+
+    <!-- 2. Tom Yum (SPECIAL) -->
+    <div class="food-card special">
+      <div class="food-img">
+        <img src="tom-yum-kung.jpg" alt="Tom Yum">
+        <div class="slide-info">
+          <h3>Tom Yum Goong ★</h3>
+          <p>Hot and sour soup with fresh prawns, lemongrass, kaffir lime leaves and chili. This is one of the most traditional and loved Thai dishes. Best in Phuket because of the fresh seafood.</p>
+        </div>
+      </div>
+      <div class="food-name">Tom Yum Goong ★ Most Traditional</div>
+    </div>
+
+    <!-- 3. Mango Sticky Rice -->
+    <div class="food-card">
+      <div class="food-img">
+        <img src="sticky mago reic.jpg" alt="Mango Sticky Rice">
+        <div class="slide-info">
+          <h3>Mango Sticky Rice</h3>
+          <p>Sweet sticky rice topped with fresh ripe mango and creamy coconut milk. The perfect Thai dessert that everyone loves.</p>
+        </div>
+      </div>
+      <div class="food-name">Mango Sticky Rice</div>
+    </div>
+
+    <!-- 4. Massaman Curry -->
+    <div class="food-card">
+      <div class="food-img">
+        <img src="massaman.jpg" alt="Massaman Curry">
+        <div class="slide-info">
+          <h3>Massaman Curry</h3>
+          <p>Mild and slightly sweet curry with potatoes, peanuts and tender meat. One of the richest and tastiest Thai curries.</p>
+        </div>
+      </div>
+      <div class="food-name">Massaman Curry</div>
+    </div>
+
+    <!-- 5. Som Tum -->
+    <div class="food-card">
+      <div class="food-img">
+        <img src="som tum.jpg" alt="Som Tum">
+        <div class="slide-info">
+          <h3>Som Tum (Papaya Salad)</h3>
+          <p>Spicy green papaya salad mixed with lime, chili, garlic and peanuts. Fresh, crunchy and full of flavor.</p>
+        </div>
+      </div>
+      <div class="food-name">Som Tum</div>
+    </div>
+
+    <!-- 6. Thai Fried Rice -->
+    <div class="food-card">
+      <div class="food-img">
+        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800&q=80" alt="Thai Fried Rice">
+        <div class="slide-info">
+          <h3>Thai Fried Rice</h3>
+          <p>Simple but delicious fried rice with egg, vegetables and your choice of chicken, shrimp or pork. A classic everyday Thai dish.</p>
+        </div>
+      </div>
+      <div class="food-name">Thai Fried Rice</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Phuket Traveler Guide</p>
+    <p>
+      <a href="index.html">Home</a> · 
+      <a href="food.html">Food</a> · 
+      <a href="places.html">Places</a> · 
+      <a href="hotels.html">Hotels</a> · 
+      <a href="contact.html">Contact</a>
+    </p>
+    <p>Hover on the pictures to see the info slide out!</p>
+  </footer>
+
+</body>
+</html>

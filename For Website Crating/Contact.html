@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Phuket Travel Guide</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+/* Header */
+
+header{
+    background:#0B4F6C;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#FFD166;
+}
+
+/* Moving Text */
+
+.marquee{
+    background:#FFD166;
+    color:#0B4F6C;
+    overflow:hidden;
+    padding:12px 0;
+    font-weight:bold;
+}
+
+.marquee p{
+    display:inline-block;
+    white-space:nowrap;
+    animation:bounce 15s linear infinite alternate;
+}
+
+@keyframes bounce{
+
+0%{
+transform:translateX(-35%);
+}
+
+100%{
+transform:translateX(35%);
+}
+
+}
+
+/* Hero */
+
+.hero{
+
+height:350px;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+color:white;
+text-align:center;
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:50px;
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:20px;
+max-width:700px;
+
+}
+
+/* Main */
+
+.container{
+
+display:flex;
+justify-content:center;
+gap:40px;
+padding:60px;
+flex-wrap:wrap;
+
+}
+
+/* Contact Info */
+
+.info{
+
+flex:1;
+min-width:300px;
+
+}
+
+.info h2{
+
+color:#0B4F6C;
+margin-bottom:20px;
+
+}
+
+.info p{
+
+margin-bottom:18px;
+line-height:1.8;
+
+}
+
+/* Form */
+
+.form{
+
+background:white;
+
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+flex:1;
+
+min-width:320px;
+
+}
+
+.form h2{
+
+color:#0B4F6C;
+margin-bottom:20px;
+
+}
+
+input,
+textarea{
+
+width:100%;
+padding:14px;
+
+margin-bottom:15px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+font-size:15px;
+
+}
+
+textarea{
+
+height:150px;
+resize:none;
+
+}
+
+button{
+
+background:#0B4F6C;
+
+color:white;
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#08374B;
+
+}
+
+/* Map */
+
+.map{
+
+padding:0 60px 60px;
+
+}
+
+.map iframe{
+
+width:100%;
+height:380px;
+
+border:none;
+
+border-radius:12px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+/* Footer */
+
+footer{
+
+background:#0B4F6C;
+
+color:white;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+footer h3{
+
+margin-bottom:10px;
+
+}
+
+footer p{
+
+margin:8px 0;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:15px;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.container{
+
+padding:30px;
+
+}
+
+.map{
+
+padding:20px;
+
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🌴 Phuket Travel Guide
+</div>
+
+<nav>
+
+<a href="Website.html">หน้าหลัก</a>
+<a href="places.html">สถานที่</a>
+<a href="food.html">อาหาร</a>
+<a href="teepak.html">ที่พัก</a>
+<a href="Contact.html">ติดต่อเรา</a>
+
+</nav>
+
+</header>
+
+<div class="marquee">
+
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Marquee Loop with Delay</title>
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #36aadc;
+            color: #fff;
+            padding: 15px 0;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            /* ใช้เวลาลูปทั้งหมด 10 วินาที */
+            animation: marqueeWithDelay 20s linear infinite; 
+        }
+
+        @keyframes marqueeWithDelay {
+            /* 0% ถึง 70% (ใช้เวลา 7 วินาที): ข้อความวิ่งจากขวาทะลุหายไปทางซ้าย */
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            70% {
+                transform: translate3d(-100%, 0, 0);
+            }
+            /* 70% ถึง 100% (ใช้เวลา  3 วินาที): ข้อความจะหยุดรออยู่ข้างนอกเงียบ ๆ ก่อนเริ่มลูปใหม่ */
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container">
+        <span class="marquee-text">🏖️ Welcome to Phuket Travel Guide • Explore Beautiful Beaches • Discover Hidden Gems • Enjoy Local Food • Contact Us Anytime • Travel Smart • Explore Phuket With Confidence • 🌴</span>
+    </div>
+
+</div>
+
+<section class="hero">
+
+<h1>Contact Us</h1>
+
+<p>
+
+We'd love to hear from you!
+If you have any questions or suggestions about traveling in Phuket,
+feel free to contact our team.
+
+</p>
+
+</section>
+
+<section class="container">
+
+<div class="info">
+
+<h2>Contact Information</h2>
+
+<p>
+📍 Phuket Province, Thailand
+</p>
+
+<p>
+📞 +66 99-999-9999
+</p>
+
+<p>
+📧 contact@phukettravelguide.com
+</p>
+
+<p>
+🕒 Monday - Sunday
+<br>
+08:00 AM - 08:00 PM
+</p>
+
+<p>
+
+Whether you're planning your first trip or looking for hidden attractions,
+our team is ready to help make your Phuket adventure unforgettable.
+
+</p>
+
+</div>
+
+<div class="form">
+
+<h2>Send Us a Message</h2>
+
+<form>
+
+<input
+type="text"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="text"
+placeholder="Subject">
+
+<textarea
+placeholder="Write your message..."
+required></textarea>
+
+<button>
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="map">
+
+<iframe
+src="https://www.google.com/maps?q=Phuket&output=embed"
+loading="lazy">
+</iframe>
+
+</section>
+
+<footer>
+
+<h3>🌴 Phuket Travel Guide</h3>
+
+<p>
+Discover the beauty of Phuket, Thailand.
+</p>
+
+<p>
+Email : contact@phukettravelguide.com
+</p>
+
+<p>
+Phone : +66 99-999-1111
+</p>
+
+<p>
+© 2026 Phuket Travel Guide. All Rights Reserved.
+</p>
+
+</footer>
+
+</body>
+</html>

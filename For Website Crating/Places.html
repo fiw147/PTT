@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places to Visit – Phuket Traveler</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 35%, #e0f7fa 100%);
+      color: #01579b;
+      line-height: 1.6;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background: #0277bd;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 8px 18px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #00e5ff;
+      color: #01579b;
+      transform: translateY(-3px);
+    }
+
+    nav a.active {
+      background: #00bcd4;
+      color: white;
+    }
+
+    /* HEADER */
+    header {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: #0288d1;
+    }
+
+    .header-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+    }
+
+    .sliding-text {
+      position: absolute;
+      bottom: 28px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(1, 87, 155, 0.8);
+      padding: 14px 0;
+      backdrop-filter: blur(4px);
+    }
+
+    .sliding-text span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide 24s linear infinite;
+      color: #e0f7fa;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* TITLE */
+    .page-title {
+      text-align: center;
+      padding: 45px 20px 30px;
+    }
+
+    .page-title h1 {
+      font-size: 2.7rem;
+      color: #01579b;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 10px rgba(2, 119, 189, 0.15);
+    }
+
+    .page-title p {
+      color: #0277bd;
+      font-size: 1.2rem;
+    }
+
+    /* 2 COLUMN GRID */
+    .places-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 20px 70px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    /* PLACE CARD */
+    .place-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(2, 119, 189, 0.18);
+      border: 3px solid #4dd0e1;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .place-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(2, 119, 189, 0.3);
+      border-color: #00e5ff;
+    }
+
+    /* IMAGE AREA */
+    .place-img {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+    }
+
+    .place-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .place-card:hover .place-img img {
+      transform: scale(1.15);
+    }
+
+    /* SLIDING INFO FROM THE PICTURE */
+    .slide-info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(1, 87, 155, 0.95), rgba(0, 151, 167, 0.9));
+      color: white;
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .place-card:hover .slide-info {
+      transform: translateY(0);
+    }
+
+    .slide-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: #80deea;
+      text-shadow: 0 0 12px rgba(128, 222, 234, 0.6);
+    }
+
+    .slide-info p {
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    /* PLACE NAME UNDER CARD */
+    .place-name {
+      text-align: center;
+      padding: 15px;
+      background: #0277bd;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: background 0.3s;
+    }
+
+    .place-card:hover .place-name {
+      background: #00acc1;
+    }
+
+    /* SPECIAL CARD - Big Buddha */
+    .special {
+      border-color: #00e5ff;
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.4), 0 10px 30px rgba(2, 119, 189, 0.2);
+    }
+
+    .special .slide-info {
+      background: linear-gradient(to top, rgba(0, 77, 64, 0.95), rgba(0, 150, 136, 0.9));
+    }
+
+    .special .place-name {
+      background: linear-gradient(90deg, #00695c, #00897b);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ffeb3b;
+      color: #01579b;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      z-index: 5;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #01579b;
+      color: #b2ebf2;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a {
+      color: #80deea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: #e0f7fa;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .places-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title h1 {
+        font-size: 2.1rem;
+      }
+      .place-img {
+        height: 240px;
+      }
+      nav ul {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="food.html">Traditional Food</a></li>
+      <li><a href="hotels.html">Hotels / Motel</a></li>
+      <li><a href="places.html" class="active">Places</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=1400&q=80" alt="Phuket landscape" class="header-img">
+    <div class="sliding-text">
+      <span>Explore the most beautiful places in Phuket • Beaches • Temples • Islands • Viewpoints • Old Town • Adventure • Nature •</span>
+    </div>
+  </header>
+
+  <!-- TITLE -->
+  <div class="page-title">
+    <h1>Places to Visit in Phuket</h1>
+    <p>Hover on any picture and watch the info slide out ✨</p>
+  </div>
+
+  <!-- PLACES GRID -->
+  <div class="places-container">
+
+    <!-- 1. Patong Beach -->
+    <div class="place-card">
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800&q=80" alt="Patong Beach">
+        <div class="slide-info">
+          <h3>Patong Beach</h3>
+          <p>The most famous beach in Phuket! Soft white sand, clear water, water sports, and amazing sunsets. Perfect for both relaxing and having fun.</p>
+        </div>
+      </div>
+      <div class="place-name">Patong Beach</div>
+    </div>
+
+    <!-- 2. Big Buddha (SPECIAL) -->
+    <div class="place-card special">
+      <div class="badge">★ Must Visit</div>
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&q=80" alt="Big Buddha">
+        <div class="slide-info">
+          <h3>Big Buddha ★</h3>
+          <p>A giant white marble Buddha sitting high on a hill. One of the most peaceful and spiritual places in Phuket with an incredible 360° view of the whole island.</p>
+        </div>
+      </div>
+      <div class="place-name">Big Buddha ★ Special</div>
+    </div>
+
+    <!-- 3. Phuket Old Town -->
+    <div class="place-card">
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=800&q=80" alt="Phuket Old Town">
+        <div class="slide-info">
+          <h3>Phuket Old Town</h3>
+          <p>Beautiful colorful Sino-Portuguese buildings, street art, cute cafés and local shops. Best place to walk around and take photos.</p>
+        </div>
+      </div>
+      <div class="place-name">Phuket Old Town</div>
+    </div>
+
+    <!-- 4. Wat Chalong -->
+    <div class="place-card">
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=800&q=80" alt="Wat Chalong">
+        <div class="slide-info">
+          <h3>Wat Chalong</h3>
+          <p>The largest and most important Buddhist temple in Phuket. Stunning architecture, peaceful atmosphere and beautiful decorations.</p>
+        </div>
+      </div>
+      <div class="place-name">Wat Chalong Temple</div>
+    </div>
+
+    <!-- 5. Phi Phi Islands -->
+    <div class="place-card">
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1559628233-100c798642d4?w=800&q=80" alt="Phi Phi Islands">
+        <div class="slide-info">
+          <h3>Phi Phi Islands</h3>
+          <p>World-famous islands near Phuket with crystal clear water, dramatic limestone cliffs and incredible snorkeling spots. A must day-trip!</p>
+        </div>
+      </div>
+      <div class="place-name">Phi Phi Islands</div>
+    </div>
+
+    <!-- 6. Freedom Beach -->
+    <div class="place-card">
+      <div class="place-img">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Freedom Beach">
+        <div class="slide-info">
+          <h3>Freedom Beach</h3>
+          <p>A quiet and beautiful hidden beach with soft white sand and turquoise water. Much less crowded than Patong – perfect for relaxing.</p>
+        </div>
+      </div>
+      <div class="place-name">Freedom Beach</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Phuket Traveler Guide</p>
+    <p>
+      <a href="index.html">Home</a> · 
+      <a href="food.html">Food</a> · 
+      <a href="places.html">Places</a> · 
+      <a href="hotels.html">Hotels</a> · 
+      <a href="contact.html">Contact</a>
+    </p>
+    <p>Hover the pictures and explore Phuket! 🌴</p>
+  </footer>
+
+</body>
+</html>
