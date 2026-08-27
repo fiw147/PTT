@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/For%20Website%20Crating/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/For%20Website%20Crating/:path*"
+    }
+  ]
+}
